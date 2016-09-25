@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne ={
+var articles = {
+articleOne : {
     
     title:' Article - One || Yash Jain',
     heading: 'Article One',
@@ -31,6 +32,57 @@ var articleOne ={
            This Is The Content Of Article-One.
            </p>`
     
+},
+articleTwo : {
+     title:' Article - Two || Yash Jain',
+    heading: 'Article Two',
+    date: 'Sept 26, 2016.',
+    content: ` <p>
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           </p>
+           <br/>
+           <p>
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           </p>
+           <br/>
+           <p>
+            This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           This Is The Content Of Article-Two.
+           </p>`
+},
+articleThree : {
+     title:' Article - Three || Yash Jain',
+    heading: 'Article Three',
+    date: 'Sept 27, 2016.',
+    content : ` <p>
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           </p>
+           <br/>
+           <p>
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           </p>
+           <br/>
+           <p>
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           This Is The Content Of Article-Three.
+           </p>`
+}
 };
 
 function createTemplate(data)
@@ -91,11 +143,11 @@ app.get('/article-one', function (req, res) {
 });
 
 app.get('/article-two', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+    res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+     res.send(createTemplate(articleThree));
 });
 
 app.get('/ui/style.css', function (req, res) {
