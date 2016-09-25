@@ -123,8 +123,7 @@ function createTemplate(data)
         <hr/>
          <div>
             <h3>Page Ends Here.</h3>
-            <a href= "/article-two">Go To Article Two</a>
-        </div>
+            div>
         
         </div>
     </body>
@@ -142,14 +141,6 @@ app.get('/:articleName', function (req, res) {
     
     var articleName = req.params.articleName;
      res.send(createTemplate(articles[articleName]));
-});
-
-app.get('/article-two', function (req, res) {
-    res.send(createTemplate(article-two));
-});
-
-app.get('/article-three', function (req, res) {
-     res.send(createTemplate(article-three));
 });
 
 app.get('/ui/style.css', function (req, res) {
